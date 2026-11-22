@@ -1,0 +1,47 @@
+name: Telegram autopost
+
+on:
+  schedule:
+    # Tashkent = UTC+5  ->  10:00, 18:00, 22:00 Tashkent
+    - cron: "3 5 * * *"
+    - cron: "3 13 * * *"
+    - cron: "3 17 * * *"
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: "Channel id to post now (or 'all')"
+        required: true
+        default: "delf_main"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: autopost
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Write and publish
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MANUS_API_KEY: ${{ secrets.MANUS_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          FORCE_CHANNEL: ${{ github.event.inputs.channel }}
+        run: python autopost.py
+      - name: Save topic history
+        if: always()
+        run: |
+          git config user.name "autopost-bot"
+          git config user.email "autopost-bot@users.noreply.github.com"
+          git add history.json || true
+          git commit -m "Update topic history" || echo "nothing to commit"
+          git push || true
