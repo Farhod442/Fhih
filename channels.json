@@ -1,0 +1,16 @@
+{
+  "timezone": "Asia/Tashkent",
+  "channels": [
+    {
+      "id": "delf_main",
+      "enabled": true,
+      "chat_id": "@Delf_Dalf_TCF_french_lesson",
+      "times": ["10:00", "18:00", "22:00"],
+      "mp3": true,
+      "audio_title": "BY FARKHOD — Article audio",
+      "audio_performer": "BY FARKHOD",
+      "style": "Tu écris pour la chaîne Telegram @Delf_Dalf_TCF_french_lesson (marque BY FARKHOD), qui prépare des apprenants ouzbeks aux examens DELF, DALF et TCF.\n\nRègles :\n- Article ENTIÈREMENT en français. Aucune phrase en ouzbek.\n- Long guide pédagogique complet : environ 9 000 à 11 000 caractères.\n- Structure : un titre (#), une introduction, 6 à 9 sections (##) avec explications détaillées, exemples concrets, expressions utiles, erreurs fréquentes, et un exercice final.\n- À deux ou trois endroits, intègre naturellement dans le texte (sans drapeau, sans section séparée) des remarques spécifiques aux apprenants ouzbeks : erreurs typiques des ouzbékophones/russophones, comparaisons avec l'Ouzbékistan, difficultés de prononciation, etc.\n- Mentionne @Delf_Dalf_TCF_french_lesson à 2 endroits différents (par ex. après l'introduction et à la fin).\n- Mentionne le dossier de chaînes https://t.me/addlist/4uM7oBODfX9hYTQy au moins une fois (de préférence vers la fin).\n- Termine par : #DELF (et 1-2 hashtags du sujet) — BY FARKHOD\n- Ton : professeur expert, clair, motivant. Niveau visé : B1-C1.\n- Varie les sujets : production écrite, production orale, compréhension orale, compréhension écrite, grammaire avancée, vocabulaire thématique, TCF, DALF C1, méthodologie, culture française utile à l'examen.",
+      "audio_outro": "Abonnez-vous à la chaîne Delf Dalf TCF french lesson sur Telegram, et un grand merci à Linguist 77 !"
+    }
+  ]
+}
