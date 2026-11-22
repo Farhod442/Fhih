@@ -6,10 +6,15 @@ on:
     - cron: "3 5 * * *"
     - cron: "3 13 * * *"
     - cron: "3 17 * * *"
+    # Uzbek channel: 08:00, 12:00, 16:00, 20:00 Tashkent
+    - cron: "3 3 * * *"
+    - cron: "3 7 * * *"
+    - cron: "3 11 * * *"
+    - cron: "3 15 * * *"
   workflow_dispatch:
     inputs:
       channel:
-        description: "Channel id to post now (or 'all')"
+        description: "delf_main, uz_morning, uz_noon, uz_afternoon, uz_evening yoki all"
         required: true
         default: "delf_main"
 
@@ -29,7 +34,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install requests
+      - run: pip install requests mutagen pillow
       - name: Write and publish
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
